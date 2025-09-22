@@ -4,9 +4,9 @@
 * Considera diferenças entre poder de processamento, sistema operacional, linguagem de programação
 * O quanto a "complexidade" do algoritmo aumenta de acordo com as entradas
 
-* Exemplos no Colab: https://colab.research.google.com/drive/1B4kcOEG5iDkT8N07NjPnOOXXWcp6VfZo?usp=sharing
+Exemplos no Colab: https://colab.research.google.com/drive/1B4kcOEG5iDkT8N07NjPnOOXXWcp6VfZo?usp=sharing
 
-* Para saber a complexidade de um método do Python: https://wiki.python.org/moin/TimeComplexity
+Para saber a complexidade de um método do Python: https://wiki.python.org/moin/TimeComplexity
 
 **Funções Big-O**
 * 1 Constant
@@ -16,3 +16,7 @@
 * n^2 Quadratic
 * n^3 Cubic
 * 2^n Exponential
+
+Realizadas as funções no [funcoes-5.py](funcoes-5.py)
+
+![img.png](img.png)
