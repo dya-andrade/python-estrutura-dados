@@ -142,3 +142,91 @@
 | Inserção          | O(n)        | O(n)      |
 | Remoção           | O(n)        | O(n)      |
 
+## 🔹 Pilhas
+- Uma **pilha** é uma estrutura de dados do tipo **LIFO** (*Last In, First Out*).  
+- Isso significa que **o último elemento que entra é o primeiro a sair**.  
+
+📌 Imagine uma pilha de **moedas**:  
+- Você só consegue **colocar** uma moeda no topo.  
+- E só consegue **retirar** a moeda que está no topo.  
+
+---
+
+### 🔹 Operações Básicas
+
+#### 1. **Push (Empilhar)**
+- Adiciona um novo elemento no **topo** da pilha.  
+- Exemplo: colocar uma nova moeda no topo da pilha.  
+
+**Complexidade:**  
+- Sempre **O(1)** → basta inserir no topo.  
+
+---
+
+#### 2. **Pop (Desempilhar)**
+- Remove o elemento do **topo** da pilha.  
+- Exemplo: retirar a moeda que está no topo da pilha.  
+
+**Complexidade:**  
+- Sempre **O(1)** → basta remover o último inserido.  
+
+---
+
+#### 3. **Peek / Top (Consultar o Topo)**
+- Olhar qual elemento está no topo sem removê-lo.  
+- Exemplo: ver qual moeda está por cima da pilha.  
+
+**Complexidade:**  
+- Sempre **O(1)**.  
+
+---
+
+#### 4. **isEmpty (Verificar se está vazia)**
+- Confere se a pilha tem ou não elementos.  
+
+**Complexidade:**  
+- Sempre **O(1)**.  
+
+---
+
+### 🔹 Exemplo com Moedas
+
+📌 Situação:  
+- Temos uma pilha vazia.  
+- Vamos empilhar as moedas de **1 real**, **50 centavos** e **25 centavos**.  
+
+Passo a passo:  
+1. `Push(1 real)` → pilha = [1]  
+2. `Push(0,50)` → pilha = [1, 0,50]  
+3. `Push(0,25)` → pilha = [1, 0,50, 0,25]  
+4. `Pop()` → remove 0,25 → pilha = [1, 0,50]  
+5. `Peek()` → topo = 0,50  
+
+---
+
+### ⚡ Resumo das Operações
+
+| Operação  | Descrição                        | Complexidade |
+|-----------|----------------------------------|--------------|
+| Push      | Inserir no topo da pilha         | O(1)         |
+| Pop       | Remover do topo da pilha         | O(1)         |
+| Peek      | Consultar o elemento do topo     | O(1)         |
+| isEmpty   | Verificar se a pilha está vazia  | O(1)         |
+
+---
+
+### 🔹 Aplicações
+- Correção de expressões aritméticas, tais como `3 * (4 + 5)`  
+- Percorrimento de uma **árvore binária**  
+- Pesquisa do vértice de um **grafo**  
+- **Microprocessadores** com arquitetura baseada em pilhas:  
+  - Quando um método é chamado, seu endereço de retorno e seus parâmetros são empilhados em uma pilha.  
+  - Quando ele retorna, esses valores são desempilhados. 
+
+---
+
+📌 **Resumo intuitivo:**  
+A pilha é como uma pilha de moedas ou pratos:  
+- Só dá para mexer no **topo**.  
+- O que entrou por último, sai primeiro (**LIFO**).  
+
