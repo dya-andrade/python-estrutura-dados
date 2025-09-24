@@ -228,5 +228,140 @@ Passo a passo:
 📌 **Resumo intuitivo:**  
 A pilha é como uma pilha de moedas ou pratos:  
 - Só dá para mexer no **topo**.  
-- O que entrou por último, sai primeiro (**LIFO**).  
+- O que entrou por último, sai primeiro (**LIFO**).
+
+## 🔹 Filas
+- Uma **fila** é uma estrutura de dados do tipo **FIFO** (*First In, First Out*).  
+- Isso significa que **o primeiro elemento que entra é o primeiro a sair**.  
+
+📌 Imagine uma fila de pessoas esperando em um caixa:  
+- A primeira pessoa a chegar é a primeira a ser atendida.  
+- Novas pessoas entram no final da fila.  
+
+---
+
+### 🔹 Operações Básicas
+
+#### 1. **Enqueue (Inserir)**
+- Adiciona um novo elemento **no final da fila**.  
+- Exemplo: uma pessoa entra na fila.  
+
+**Complexidade:**  
+- O(1) → inserir no final da fila.  
+
+---
+
+#### 2. **Dequeue (Remover)**
+- Remove o elemento **do início da fila**.  
+- Exemplo: a pessoa da frente é atendida e sai da fila.  
+
+**Complexidade:**  
+- O(1) em implementações com ponteiros ou deque.  
+- O(n) se usar lista Python padrão e remover o primeiro elemento.  
+
+---
+
+#### 3. **Peek / Front (Consultar o Início)**
+- Olhar qual elemento está **no início da fila** sem removê-lo.  
+
+**Complexidade:**  
+- O(1) → acesso direto ao primeiro elemento.  
+
+---
+
+#### 4. **isEmpty (Verificar se está vazia)**
+- Confere se a fila tem ou não elementos.  
+
+**Complexidade:**  
+- O(1)  
+
+---
+
+### 🔹 Exemplo com Pessoas
+
+📌 Situação:  
+- Temos uma fila vazia.  
+- Vamos adicionar três pessoas: Ana, Bruno e Carla.  
+
+Passo a passo:  
+1. `Enqueue(Ana)` → fila = [Ana]  
+2. `Enqueue(Bruno)` → fila = [Ana, Bruno]  
+3. `Enqueue(Carla)` → fila = [Ana, Bruno, Carla]  
+4. `Dequeue()` → remove Ana → fila = [Bruno, Carla]  
+5. `Peek()` → início da fila = Bruno  
+
+---
+
+### 🔹 Exemplo: Envio de Pacotes de Dados
+
+- Em redes, pacotes podem ser enviados em **ordem de chegada** usando uma fila.  
+- O pacote que chega primeiro será transmitido primeiro.  
+
+📌 Exemplo:  
+1. `Enqueue(Pacote A)` → fila = [A]  
+2. `Enqueue(Pacote B)` → fila = [A, B]  
+3. `Enqueue(Pacote C)` → fila = [A, B, C]  
+4. `Dequeue()` → envia A → fila = [B, C]  
+
+---
+
+### 🔹 Exemplo: Impressora
+
+- A impressora processa documentos **na ordem em que chegam** usando uma fila.  
+
+📌 Exemplo:  
+1. `Enqueue(Doc1)` → fila = [Doc1]  
+2. `Enqueue(Doc2)` → fila = [Doc1, Doc2]  
+3. `Enqueue(Doc3)` → fila = [Doc1, Doc2, Doc3]  
+4. `Dequeue()` → imprime Doc1 primeiro.  
+
+---
+
+### 🔹 Fila Circular
+
+- Uma **fila circular** é uma variação da fila comum onde o **último elemento se conecta ao primeiro**.  
+- Permite **reaproveitar o espaço vazio** deixado por elementos removidos no início, evitando desperdício de memória.  
+
+📌 Vantagens:
+- Otimiza o uso do espaço em implementações de tamanho fixo.  
+- Evita o deslocamento constante de elementos como em listas lineares.  
+
+#### Exemplo de Fila Circular
+1. Inicializamos uma fila circular de tamanho 5: `[_, _, _, _, _]`  
+2. `Enqueue(A)` → `[A, _, _, _, _]`  
+3. `Enqueue(B)` → `[A, B, _, _, _]`  
+4. `Enqueue(C)` → `[A, B, C, _, _]`  
+5. `Dequeue()` → remove A → `[_, B, C, _, _]`  
+6. `Enqueue(D)` → `[D, B, C, _, _]` (o espaço vazio no início é reutilizado)  
+
+---
+
+### ⚡ Resumo das Operações
+
+| Operação  | Descrição                          | Complexidade |
+|-----------|------------------------------------|--------------|
+| Enqueue   | Inserir no final da fila           | O(1)         |
+| Dequeue   | Remover do início da fila          | O(1)         |
+| Peek      | Consultar o elemento do início    | O(1)         |
+| isEmpty   | Verificar se a fila está vazia     | O(1)         |
+| Fila Circular | Reaproveita espaço e conecta o final ao início | O(1) |
+
+---
+
+### 🔹 Aplicações
+- Gerenciamento de **tarefas em sistemas operacionais**  
+- Transmissão de **pacotes de rede**  
+- Fila de impressão em **impressoras**  
+- Processamento de **mensagens em sistemas distribuídos**  
+- Estruturas de buffers circulares em **sistemas embarcados*
+
+---
+
+📌 **Resumo intuitivo:**  
+A fila é como uma fila de pessoas ou pacotes:  
+- O primeiro que entra é o **primeiro a sair** (**FIFO**).  
+- Novos elementos entram **no final** da fila. 
+- Na **fila circular**, o espaço é reutilizado, tornando a fila mais eficiente.
+
+
 
