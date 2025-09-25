@@ -363,5 +363,107 @@ A fila é como uma fila de pessoas ou pacotes:
 - Novos elementos entram **no final** da fila. 
 - Na **fila circular**, o espaço é reutilizado, tornando a fila mais eficiente.
 
+## 🔹 Fila de Prioridade
+- Diferente da fila comum (**FIFO**), onde a ordem é a de chegada,  
+  na **fila de prioridade** cada elemento tem uma **prioridade associada**.  
+- O elemento com **maior prioridade** é atendido primeiro.  
+- Se dois elementos têm a mesma prioridade, usa-se a ordem de chegada como critério de desempate.  
+
+📌 Exemplo prático:  
+- Em um hospital, pacientes em estado grave são atendidos antes dos demais, mesmo que tenham chegado depois.  
+
+---
+
+### 🔹 Operações Básicas
+
+#### 1. **Inserção (Enqueue com prioridade)**
+- Adiciona um novo elemento na fila, levando em conta sua **prioridade**.  
+- Pode exigir reorganização da fila (dependendo da implementação).  
+
+**Complexidade:**  
+- O(log n) → se usar uma **Heap** (estrutura mais eficiente).  
+- O(n) → se percorrer a lista para encontrar a posição correta.  
+
+---
+
+#### 2. **Remoção (Dequeue prioritário)**
+- Remove o elemento de **maior prioridade**.  
+- Exemplo: em uma emergência, o paciente mais grave é removido da fila para ser atendido.  
+
+**Complexidade:**  
+- O(log n) → em implementações com Heap.  
+- O(1) → se a fila estiver sempre ordenada (mas a inserção fica mais cara).  
+
+---
+
+#### 3. **Peek (Consultar)**
+- Permite visualizar o **elemento de maior prioridade** sem removê-lo.  
+
+**Complexidade:**  
+- O(1)  
+
+---
+
+### 🔹 Exemplos Práticos
+
+#### 1. Hospital
+- `Enqueue(Paciente Ana, prioridade=2)` → fila = [Ana]  
+- `Enqueue(Paciente Bruno, prioridade=5)` → fila = [Bruno, Ana]  
+- `Enqueue(Paciente Carla, prioridade=3)` → fila = [Bruno, Carla, Ana]  
+- `Dequeue()` → remove Bruno (prioridade mais alta).  
+
+---
+
+#### 2. Impressão com Prioridade
+- Documentos importantes podem ter prioridade maior.  
+- `Enqueue(Doc1, prioridade=1)`  
+- `Enqueue(Doc2, prioridade=10)`  
+- `Enqueue(Doc3, prioridade=5)`  
+- Ordem de impressão: Doc2 → Doc3 → Doc1.  
+
+---
+
+### 🔹 Fila de Prioridade x Fila Normal
+
+| Tipo                  | Ordem de Atendimento          |
+|------------------------|-------------------------------|
+| Fila Normal (FIFO)    | Ordem de chegada              |
+| Fila de Prioridade    | Ordem de maior prioridade     |
+
+---
+
+### 🔹 Estruturas de Implementação
+- **Lista Ordenada:** simples, mas inserção é O(n).  
+- **Heap Binária (Min-Heap ou Max-Heap):** eficiente, com inserção e remoção em O(log n).  
+- **Fila com múltiplas filas internas:** cada fila representa uma prioridade diferente.  
+
+---
+
+### ⚡ Resumo das Operações
+
+| Operação   | Descrição                                | Complexidade |
+|------------|------------------------------------------|--------------|
+| Enqueue    | Inserir elemento com prioridade          | O(log n) ou O(n) |
+| Dequeue    | Remover elemento de maior prioridade     | O(log n) |
+| Peek       | Consultar o elemento de maior prioridade | O(1) |
+| isEmpty    | Verificar se a fila está vazia           | O(1) |
+
+---
+
+### 🔹 Aplicações
+- **Sistemas Operacionais** → escalonamento de processos (processos críticos rodam antes).  
+- **Redes de Computadores** → pacotes urgentes transmitidos primeiro.  
+- **Simulações** → eventos com prioridade maior são processados antes.  
+- **Atendimento em Hospitais ou Call Centers** → casos urgentes são tratados antes.  
+- **Algoritmos de Grafos** → Dijkstra e A* usam filas de prioridade para explorar vértices com menor custo primeiro.  
+
+---
+
+📌 **Resumo intuitivo:**  
+A **fila de prioridade** funciona como um hospital ou sistema de emergência:  
+- Nem sempre o primeiro a chegar é o primeiro a sair.  
+- O **mais urgente (maior prioridade)** é atendido primeiro.  
+
+
 
 
