@@ -527,7 +527,73 @@ Um Deque pode ser implementado de diferentes formas:
 ### 📌 Resumo intuitivo
 - O **Deque** é como uma fila que pode ser usada **dos dois lados**.  
 - Ele pode ser implementado de forma **estática** (vetor fixo) ou **circular** (aproveitamento máximo do espaço).  
-- Combina o melhor de **pilhas** e **filas** numa única estrutura, com operações rápidas (**O(1)**).  
+- Combina o melhor de **pilhas** e **filas** numa única estrutura, com operações rápidas (**O(1)**).
+
+---
+
+## 🔹 Listas Encadeadas
+
+### 1. **Pesquisa Linear**
+- Para encontrar um elemento, percorremos a lista do início até achar o valor ou chegar ao final.  
+- **Complexidade:** O(n), pois no pior caso precisamos percorrer todos os elementos.  
+
+---
+
+### 2. **Inserção no Início**
+- Criamos um novo nó.  
+- O ponteiro do novo nó aponta para o antigo primeiro nó.  
+- O início da lista passa a ser o novo nó.  
+- **Complexidade:** O(1), pois não depende do tamanho da lista.  
+
+---
+
+### 3. **Remoção no Início**
+- Guardamos a referência do primeiro nó.  
+- Fazemos o início da lista apontar para o segundo nó.  
+- Liberamos o antigo nó.  
+- **Complexidade:** O(1), pois só alteramos ponteiros.  
+
+---
+
+### 4. **Exclusão em uma Posição Específica**
+- Percorremos a lista até o nó anterior à posição desejada.  
+- Ajustamos o ponteiro dele para "pular" o nó a ser removido.  
+- **Complexidade:** O(n), pois precisamos percorrer até a posição desejada.  
+
+---
+
+### 5. **Mostrar a Lista**
+- Percorremos do início até o final imprimindo os valores.  
+- **Complexidade:** O(n), pois percorremos todos os elementos.  
+
+---
+
+### ⚡ Complexidade das Operações
+
+| Operação             | Complexidade |
+|-----------------------|--------------|
+| Inserção no início    | O(1)         |
+| Remoção no início     | O(1)         |
+| Exclusão na posição   | O(n)         |
+| Pesquisa (linear)     | O(n)         |
+| Mostrar lista         | O(n)         |
+
+---
+
+### 🔹 Aplicações
+- Estruturas dinâmicas em linguagens de programação  
+- Implementação de **pilhas** e **filas**  
+- Gerenciamento de **memória dinâmica**  
+- Algoritmos que precisam de inserções e remoções frequentes no meio da lista  
+
+---
+
+### 📌 Resumo intuitivo
+A lista encadeada é como uma corrente de elos:  
+- Cada elo aponta para o próximo.  
+- Para acessar o 5º elo, você precisa passar pelo 1º, 2º, 3º e 4º.  
+- Inserir ou remover no início é rápido, mas localizar elementos exige percorrer.  
+
 
 
 
