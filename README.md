@@ -465,5 +465,72 @@ A **fila de prioridade** funciona como um hospital ou sistema de emergência:
 - O **mais urgente (maior prioridade)** é atendido primeiro.  
 
 
+## 🔹 Deque
+- Um **Deque** (*Double-Ended Queue*) é uma estrutura de dados que permite **inserir e remover elementos tanto no início quanto no final**.  
+- Ele é considerado uma **junção de Fila (FIFO)** e **Pilha (LIFO)**:
+  - Como **fila** → elementos entram no final e saem no início.  
+  - Como **pilha** → elementos entram e saem no mesmo lado (topo).  
+
+📌 Em resumo, o Deque é **mais flexível** que Pilha e Fila, pois combina as operações de ambas.
+
+---
+
+### 🔹 Implementações de um Deque
+Um Deque pode ser implementado de diferentes formas:
+
+1. **Estático**  
+   - Utiliza um **vetor de tamanho fixo**.  
+   - Necessita controle manual dos índices de início e fim.  
+   - Pode sofrer desperdício de espaço se não for circular.  
+
+2. **Circular**  
+   - O final do vetor está conectado ao início.  
+   - Permite **reaproveitar espaços** liberados quando elementos são removidos.  
+   - Muito eficiente em termos de **uso de memória**.  
+
+---
+
+### 🔹 Operações e Complexidade
+
+| Operação              | Descrição                                 | Complexidade |
+|------------------------|-------------------------------------------|--------------|
+| `append(valor)`        | Inserir elemento no **final**             | O(1) |
+| `appendleft(valor)`    | Inserir elemento no **início**            | O(1) |
+| `pop()`                | Remover elemento do **final**             | O(1) |
+| `popleft()`            | Remover elemento do **início**            | O(1) |
+| `peek()`               | Consultar o último elemento               | O(1) |
+| `peekleft()`           | Consultar o primeiro elemento             | O(1) |
+| `isEmpty()`            | Verificar se está vazio                   | O(1) |
+
+---
+
+### ⚡ Comparação: Pilha, Fila e Deque
+
+| Estrutura | Inserção       | Remoção       | Restrição            |
+|-----------|----------------|---------------|----------------------|
+| **Fila**  | Final          | Início        | FIFO                 |
+| **Pilha** | Topo           | Topo          | LIFO                 |
+| **Deque** | Início e Final | Início e Final| Combina FIFO e LIFO  |
+
+---
+
+### 🔹 Aplicações do Deque
+- Filas de prioridade  
+- Agendamento de tarefas em multiprocessadores  
+- Algoritmo de **agendamento de trabalho furtivo (work-stealing)**  
+  - Usado na biblioteca **Threading Building Blocks (TBB)** da **Intel** para programação paralela  
+- Buffers circulares (ex: streaming de áudio/vídeo)  
+- Algoritmos de **sliding window** (ex: máximo/mínimo em janelas móveis)  
+
+---
+
+### 📌 Resumo intuitivo
+- O **Deque** é como uma fila que pode ser usada **dos dois lados**.  
+- Ele pode ser implementado de forma **estática** (vetor fixo) ou **circular** (aproveitamento máximo do espaço).  
+- Combina o melhor de **pilhas** e **filas** numa única estrutura, com operações rápidas (**O(1)**).  
+
+
+
+
 
 
