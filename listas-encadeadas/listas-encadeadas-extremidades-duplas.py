@@ -38,7 +38,7 @@ class ListaEncadeadaExtremidadeDupla:
 
     def excluir_inicio(self):
         if self.__lista_vazia():
-            print("A lista está vazia!")
+            print("A lista está vázia!")
             return None
 
         temp = self.primeiro

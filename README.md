@@ -680,8 +680,185 @@ A lista encadeada com extremidades duplas é como uma **fila de pessoas**:
 - Você pode adicionar alguém no **início** ou no **final** rapidamente.  
 - Para ver todos, é preciso percorrer da primeira até a última pessoa.  
 
+---
 
+## 🔹 Listas Duplamente Encadeadas
 
+Uma **lista duplamente encadeada** é uma variação da lista encadeada em que cada nó possui **dois ponteiros**:  
+- Um que aponta para o **próximo** nó.  
+- Outro que aponta para o **anterior**.  
 
+Além disso, a lista mantém referências para o **primeiro** (*head*) e para o **último** (*tail*) nó.  
+Isso permite inserir e remover elementos tanto no início quanto no final de forma eficiente.
 
+---
 
+### 1. **Inserção no Início**
+- Criamos um novo nó.  
+- O novo nó aponta para o antigo primeiro nó.  
+- O ponteiro `anterior` do antigo primeiro nó passa a apontar para o novo.  
+- Atualizamos o ponteiro de início para o novo nó.  
+- Se a lista estava vazia, o final também passa a ser o novo nó.  
+- **Complexidade:** O(1).  
+
+---
+
+### 2. **Inserção no Final**
+- Criamos um novo nó.  
+- O novo nó aponta para `None` como próximo.  
+- O `anterior` do novo nó aponta para o antigo último nó.  
+- O `próximo` do último nó passa a apontar para o novo nó.  
+- Atualizamos o ponteiro de final para o novo nó.  
+- Se a lista estava vazia, o início também passa a ser o novo nó.  
+- **Complexidade:** O(1).  
+
+---
+
+### 3. **Remoção no Início**
+- Guardamos a referência do primeiro nó.  
+- O início passa a apontar para o segundo nó.  
+- O ponteiro `anterior` do novo primeiro nó é atualizado para `None`.  
+- Se a lista ficar vazia, o final também é atualizado para `None`.  
+- **Complexidade:** O(1).  
+
+---
+
+### 4. **Remoção no Final**
+- Guardamos a referência do último nó.  
+- O final passa a ser o nó anterior.  
+- O `próximo` do novo último nó é atualizado para `None`.  
+- Se a lista ficar vazia, o início também é atualizado para `None`.  
+- **Complexidade:** O(1).  
+
+---
+
+### 5. **Remoção em uma Posição Específica**
+- Percorremos a lista até chegar ao nó da posição desejada.  
+- Ajustamos os ponteiros:
+  - O `próximo` do nó anterior passa a apontar para o nó seguinte.  
+  - O `anterior` do nó seguinte passa a apontar para o nó anterior.  
+- Se for o primeiro nó, usamos a lógica de **remoção no início**.  
+- Se for o último nó, usamos a lógica de **remoção no final**.  
+- **Complexidade:** O(n), pois pode ser necessário percorrer a lista até a posição desejada.  
+
+---
+
+### 6. **Mostrar a Lista**
+- Percorremos do início até o final imprimindo os valores.  
+- **Complexidade:** O(n), pois percorremos todos os elementos.  
+
+---
+
+### ⚡ Complexidade das Operações
+
+| Operação                   | Complexidade |
+|-----------------------------|--------------|
+| Inserção no início          | O(1)         |
+| Inserção no final           | O(1)         |
+| Remoção no início           | O(1)         |
+| Remoção no final            | O(1)         |
+| Remoção em posição específica | O(n)       |
+| Mostrar lista               | O(n)         |
+
+---
+
+### 🔹 Diferença para Lista Simplesmente Encadeada
+- **Lista Simplesmente Encadeada**: cada nó só conhece o **próximo**.  
+  - Inserir no final é rápido (O(1)), mas remover no final é **lento (O(n))**, pois precisamos percorrer até o penúltimo nó.  
+  - Remover em uma posição específica também exige percorrer até chegar nela.  
+
+- **Lista Duplamente Encadeada**: cada nó conhece tanto o **próximo** quanto o **anterior**.  
+  - Isso permite **remoção eficiente no final (O(1))**, além de facilitar percorrer a lista nos dois sentidos.  
+  - Mesmo assim, para remover em uma posição arbitrária ainda precisamos percorrer até ela (O(n)).  
+
+---
+
+### 🔹 Aplicações
+- Estruturas de **deque** (fila dupla, com inserção e remoção em ambas as extremidades).  
+- Navegação em **listas de histórico** (avançar e voltar).  
+- Estruturas que exigem inserções e remoções frequentes em ambas as pontas.  
+
+---
+
+### 📌 Resumo intuitivo
+A lista duplamente encadeada é como uma **linha de pessoas de mãos dadas**:  
+- Cada pessoa segura a mão da próxima **e** da anterior.  
+- Assim, é fácil remover alguém tanto do **início** quanto do **final**, sem precisar andar pela fila inteira.  
+- Mas, para remover alguém do **meio da fila**, ainda precisamos andar até ela.  
+
+---
+
+## 🔹 Pilhas e Filas com Listas Simplesmente Encadeadas
+
+Uma **lista simplesmente encadeada** é composta por nós que armazenam:  
+- Um **valor**.  
+- Um ponteiro para o **próximo nó**.  
+
+Diferente de um **array/vetor**, a lista encadeada não precisa de espaço contíguo na memória.  
+Isso traz vantagens na implementação de **pilhas (LIFO)** e **filas (FIFO)**.  
+
+---
+
+### 1. **Pilha com Lista Encadeada**
+A pilha segue o princípio **LIFO (Last In, First Out)**: o último a entrar é o primeiro a sair.  
+
+- **Inserção (push)**:  
+  - O novo nó é adicionado sempre no **início** da lista.  
+  - O ponteiro `próximo` do novo nó aponta para o antigo topo.  
+  - Atualizamos o **topo** para esse novo nó.  
+  - **Complexidade:** O(1).  
+
+- **Remoção (pop)**:  
+  - Removemos sempre o **início** da lista.  
+  - Atualizamos o ponteiro `topo` para o próximo nó.  
+  - **Complexidade:** O(1).  
+
+✅ **Vantagem sobre arrays**: não há necessidade de realocar memória ou lidar com limite fixo de tamanho.  
+
+---
+
+### 2. **Fila com Lista Encadeada**
+A fila segue o princípio **FIFO (First In, First Out)**: o primeiro a entrar é o primeiro a sair.  
+
+- **Inserção (enqueue)**:  
+  - O novo nó é adicionado sempre no **final** da lista.  
+  - O ponteiro `próximo` do antigo último nó passa a apontar para o novo nó.  
+  - Atualizamos a referência de **último** para o novo nó.  
+  - **Complexidade:** O(1).  
+
+- **Remoção (dequeue)**:  
+  - Removemos sempre o **início** da lista.  
+  - Atualizamos o ponteiro `primeiro` para o próximo nó.  
+  - **Complexidade:** O(1).  
+
+✅ **Vantagem sobre arrays**: em arrays, a remoção no início custa **O(n)** (pois todos os elementos precisam ser deslocados).  
+Na lista encadeada, basta ajustar o ponteiro.  
+
+---
+
+### ⚡ Complexidade das Operações
+
+| Estrutura | Operação          | Complexidade |
+|-----------|-------------------|--------------|
+| **Pilha** | Push (inserir)    | O(1)         |
+|           | Pop (remover)     | O(1)         |
+| **Fila**  | Enqueue (inserir) | O(1)         |
+|           | Dequeue (remover) | O(1)         |
+
+---
+
+### 🔹 Vantagens da Lista Encadeada
+- **Memória dinâmica**: cresce e diminui conforme a necessidade, sem limite fixo.  
+- **Eficiência nas operações**: inserções e remoções no início ou no fim custam **O(1)**.  
+- **Sem deslocamentos**: diferente dos arrays, não é preciso mover elementos.  
+
+---
+
+### 📌 Resumo intuitivo
+- **Pilha com lista encadeada** → pense em uma **pilha de pratos**, onde você sempre coloca e tira do **topo**.  
+- **Fila com lista encadeada** → pense em uma **fila de pessoas**, onde entra gente no **fim** e sai gente pelo **início**.  
+
+👉 A lista encadeada é como se cada prato ou pessoa tivesse um "cartão" dizendo quem vem depois.  
+Isso evita o trabalho de reorganizar todo o conjunto sempre que alguém entra ou sai.  
+
+---

@@ -36,7 +36,7 @@ class ListaEncadeada:
 
         atual = self.primeiro
 
-        while atual.valor != valor:
+        while atual.__valor != valor:
             if atual.proximo is None:
                 print('O valor não foi encontrado!')
                 return None
@@ -63,7 +63,7 @@ class ListaEncadeada:
         atual = self.primeiro
         anterior = None
 
-        while atual is not None and atual.valor != valor:
+        while atual is not None and atual.__valor != valor:
             anterior = atual
             atual = atual.proximo
 
