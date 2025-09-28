@@ -3,6 +3,7 @@
 - Site que ajuda a visualizar: https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 - Para ter acesso aos PDFs com explicações: https://shre.ink/SoC1
 
+---
 
 ## 🔹 Vetores
 - Um **vetor** (ou *array*) é uma estrutura de dados **estática** que armazena elementos do mesmo tipo em posições contíguas da memória.  
@@ -43,6 +44,8 @@
 | Pesquisa Linear  | O(1)        | O(n)      |
 | Inserção         | O(1)        | O(n)      |
 | Remoção          | O(1)        | O(n)      |
+
+---
 
 ## 🔹 Vetores Ordenados
 - Um **vetor ordenado** é semelhante a um vetor comum, mas seus elementos são mantidos em **ordem crescente ou decrescente**.  
@@ -142,6 +145,8 @@
 | Inserção          | O(n)        | O(n)      |
 | Remoção           | O(n)        | O(n)      |
 
+---
+
 ## 🔹 Pilhas
 - Uma **pilha** é uma estrutura de dados do tipo **LIFO** (*Last In, First Out*).  
 - Isso significa que **o último elemento que entra é o primeiro a sair**.  
@@ -229,6 +234,8 @@ Passo a passo:
 A pilha é como uma pilha de moedas ou pratos:  
 - Só dá para mexer no **topo**.  
 - O que entrou por último, sai primeiro (**LIFO**).
+
+---
 
 ## 🔹 Filas
 - Uma **fila** é uma estrutura de dados do tipo **FIFO** (*First In, First Out*).  
@@ -363,6 +370,8 @@ A fila é como uma fila de pessoas ou pacotes:
 - Novos elementos entram **no final** da fila. 
 - Na **fila circular**, o espaço é reutilizado, tornando a fila mais eficiente.
 
+---
+
 ## 🔹 Fila de Prioridade
 - Diferente da fila comum (**FIFO**), onde a ordem é a de chegada,  
   na **fila de prioridade** cada elemento tem uma **prioridade associada**.  
@@ -464,6 +473,7 @@ A **fila de prioridade** funciona como um hospital ou sistema de emergência:
 - Nem sempre o primeiro a chegar é o primeiro a sair.  
 - O **mais urgente (maior prioridade)** é atendido primeiro.  
 
+---
 
 ## 🔹 Deque
 - Um **Deque** (*Double-Ended Queue*) é uma estrutura de dados que permite **inserir e remover elementos tanto no início quanto no final**.  
@@ -594,6 +604,81 @@ A lista encadeada é como uma corrente de elos:
 - Para acessar o 5º elo, você precisa passar pelo 1º, 2º, 3º e 4º.  
 - Inserir ou remover no início é rápido, mas localizar elementos exige percorrer.  
 
+---
+
+## 🔹 Listas Encadeadas com Extremidades Duplas
+
+Uma **lista encadeada com extremidades duplas** mantém ponteiros tanto para o **primeiro nó** (*head*) quanto para o **último nó** (*tail*).  
+Isso facilita algumas operações, como inserir no final, sem precisar percorrer toda a lista.
+
+---
+
+### 1. **Inserção no Início**
+- Criamos um novo nó.  
+- O ponteiro do novo nó aponta para o antigo primeiro nó.  
+- O início da lista passa a ser o novo nó.  
+- Se a lista estava vazia, o final também passa a apontar para esse nó.  
+- **Complexidade:** O(1), não depende do tamanho da lista.  
+
+---
+
+### 2. **Inserção no Final**
+- Criamos um novo nó.  
+- O ponteiro do último nó (tail) passa a apontar para o novo nó.  
+- Atualizamos o ponteiro de **final** para o novo nó.  
+- Se a lista estava vazia, o início também aponta para ele.  
+- **Complexidade:** O(1), pois acessamos o final diretamente.  
+
+---
+
+### 3. **Remoção no Início**
+- Guardamos a referência do primeiro nó.  
+- O início da lista passa a apontar para o próximo nó.  
+- Se a lista ficar vazia, o final também é atualizado para `null`.  
+- Liberamos o antigo nó.  
+- **Complexidade:** O(1), só ajustamos ponteiros.  
+
+---
+
+### 4. **Por que não é possível remover no Final?**
+- Apesar de termos um ponteiro para o **último nó** (*tail*), não temos acesso direto ao **nó anterior**.  
+- Em uma lista **simplesmente encadeada**, cada nó só conhece o **próximo**, nunca o anterior.  
+- Para excluir o último nó, seria necessário percorrer a lista inteira até encontrar o penúltimo nó.  
+- Assim, a operação teria **complexidade O(n)**.  
+
+👉 Por isso, em listas **simples** com extremidades duplas, **não é eficiente remover no final**.  
+Se quisermos remoção eficiente no final, precisamos usar uma **lista duplamente encadeada**, onde cada nó conhece tanto o **próximo** quanto o **anterior**.  
+
+---
+
+### 5. **Mostrar a Lista**
+- Percorremos do início até o fim imprimindo os valores.  
+- **Complexidade:** O(n), pois percorremos todos os elementos.  
+
+---
+
+### ⚡ Complexidade das Operações
+
+| Operação             | Complexidade |
+|-----------------------|--------------|
+| Inserção no início    | O(1)         |
+| Inserção no final     | O(1)         |
+| Remoção no início     | O(1)         |
+| Mostrar lista         | O(n)         |
+
+---
+
+### 🔹 Aplicações
+- Estruturas de **filas** (inserção no final, remoção no início).  
+- Gerenciamento de **buffers de dados**.  
+- Estruturas dinâmicas que exigem acesso rápido ao início e ao final.  
+
+---
+
+### 📌 Resumo intuitivo
+A lista encadeada com extremidades duplas é como uma **fila de pessoas**:  
+- Você pode adicionar alguém no **início** ou no **final** rapidamente.  
+- Para ver todos, é preciso percorrer da primeira até a última pessoa.  
 
 
 
