@@ -3,6 +3,17 @@
 - Site que ajuda a visualizar: https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 - Para ter acesso aos PDFs com explicações: https://shre.ink/SoC1
 
+# 📑 Índice — Estruturas de Dados
+
+- [📚 Introdução](#-introdução)
+- [🔹 Vetores](#-vetores)
+- [🔹 Vetores Ordenados](#-vetores-ordenados)
+- [🔹 Pilhas (LIFO)](#-pilhas-lifo)
+- [🔹 Filas (FIFO)](#-filas-fifo)
+- [🔹 Fila de Prioridade](#-fila-de-prioridade)
+- [🔹 Deque (Double-Ended Queue)](#-deque-double-ended-queue)
+- [🔹 Listas Encadeadas](#-listas-encadeadas)
+
 ---
 
 ## 🔹 Vetores
@@ -960,5 +971,92 @@ A recursão é como **espelhos frente a frente**:
 Cada espelho reflete o próximo até que a imagem fique tão pequena que desaparece (**caso base**).  
 
 O custo depende de quantas vezes você reflete e o que faz em cada reflexão.  
+
+---
+
+# 🧩 Ordenação de Vetores (Sorting)
+
+A **ordenação de vetores** é uma das operações mais importantes em ciência da computação.  
+Ela organiza os elementos de um conjunto (como números, nomes ou objetos) em uma sequência lógica — normalmente **crescente ou decrescente**.
+
+---
+
+## 🎯 Por que precisamos ordenar?
+
+A ordenação é essencial porque:
+
+- 🔍 **Facilita a busca** — algoritmos de busca binária, por exemplo, só funcionam em listas ordenadas.  
+- 📊 **Melhora a análise de dados** — dados organizados são mais fáceis de interpretar e visualizar.  
+- ⚙️ **Aumenta a eficiência de outros algoritmos** — muitas estruturas de dados e operações (como junções em bancos de dados) se beneficiam de listas ordenadas.  
+- 📦 **Otimiza tarefas práticas** — como exibir rankings, listas de preços, resultados de pesquisas, ou organizar arquivos por data/nome.  
+
+---
+
+## 🌍 Onde é útil?
+
+- Sistemas de recomendação (ordenar produtos ou filmes por relevância)  
+- Processamento de grandes volumes de dados  
+- Aplicações financeiras (ordenar transações, preços, históricos)  
+- Jogos (ordenar pontuações, ranking de jogadores)  
+
+---
+
+## 🔗 Visualização on-line
+
+Você pode ver como os algoritmos de ordenação funcionam de forma interativa neste site:
+
+👉 [**Visualização on-line de Ordenações – Visualgo**](https://visualgo.net/en/sorting)
+
+---
+
+## 🫧 Ordenação Bubble Sort (Método da Bolha)
+
+O **Bubble Sort**, também chamado de **método da bolha**, é um dos algoritmos de ordenação mais simples de entender.
+
+---
+
+### ⚙️ Como funciona
+
+1. O algoritmo percorre o vetor várias vezes.  
+2. Em cada passagem, ele compara **pares de elementos adjacentes**.  
+3. Se o elemento da esquerda for **maior que o da direita**, eles são trocados.  
+4. A cada passagem, o **maior elemento “sobe”** para o final do vetor, como uma bolha subindo na água.  
+5. O processo se repete até que não haja mais trocas — o vetor está ordenado.
+
+---
+
+### 📈 Análise de desempenho
+
+Para um vetor com **10 elementos**, ele faz:
+
+````yaml
+9 comparações na 1ª passagem
+8 na 2ª
+7 na 3ª
+… até 1 comparação na última
+````
+
+**Total de comparações:**
+9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 45
+
+---
+
+### 💡 Big-O (Complexidade)
+
+- **O(n²)** — cresce quadraticamente com o tamanho do vetor.  
+- Faz cerca de **N² / 2 comparações**.  
+- Há menos trocas que comparações, pois só há troca quando dois elementos estão fora de ordem.  
+- Se os dados estiverem aleatórios, o número médio de trocas será aproximadamente **N² / 4**.  
+- No pior caso (vetor em ordem inversa), quase toda comparação resulta em troca.
+
+---
+
+### 🧠 Onde é aplicável
+
+Apesar de ineficiente para grandes volumes de dados, o **Bubble Sort** é útil para:
+
+- 🧩 Ensinar conceitos básicos de ordenação e comparação.  
+- 📋 Pequenas listas (onde a simplicidade importa mais que o desempenho).  
+- ⚡ Situações em que é importante detectar rapidamente se o vetor já está ordenado (o algoritmo pode parar mais cedo).  
 
 ---
