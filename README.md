@@ -862,3 +862,103 @@ Na lista encadeada, basta ajustar o ponteiro.
 Isso evita o trabalho de reorganizar todo o conjunto sempre que alguém entra ou sai.  
 
 ---
+
+## 🔹 Recursão
+
+A **recursão** é uma técnica em que uma função **chama a si mesma** para resolver um problema. Ela divide o problema em **subproblemas menores**, até chegar a um **caso base**, que interrompe a recursão.
+
+---
+
+### 1. **Exemplo: Fatorial**
+
+```python
+def fatorial(n):
+    if n == 0:  # Caso base
+        return 1
+    return n * fatorial(n - 1)  # Chamada recursiva
+```
+   
+- fatorial(5) chama fatorial(4) → chama fatorial(3) → até chegar em fatorial(0).
+
+### 2. **Árvore de Execução**
+
+Cada chamada recursiva cria uma camada de execução (stack frame) na memória. 
+Quando o caso base é atingido, a pilha começa a ser desempilhada, retornando os valores.
+
+- fatorial(3) → 3 * fatorial(2) → 3 * (2 * fatorial(1)) → 3 * (2 * (1 * fatorial(0))) → 3 * 2 * 1 * 1 = 6
+
+### 3. **Complexidade Big-O da Recursão**
+
+A análise de complexidade depende de quantas vezes a função é chamada e o custo de cada chamada.
+
+🔹 Exemplo 1: Fatorial
+
+```python
+def fatorial(n):
+    if n == 0:
+        return 1
+    return n * fatorial(n - 1)
+```
+- Cada chamada reduz n em 1. Temos n chamadas até chegar no caso base.
+- Complexidade: O(n)
+
+🔹 Exemplo 2: Fibonacci (recursivo simples)
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+```
+- Cada chamada gera duas novas chamadas. O número de chamadas cresce exponencialmente.
+- Complexidade: O(2^n) (muito ineficiente).
+
+🔹 Exemplo 3: Busca Binária (recursiva)
+
+```python
+def busca_binaria(arr, inicio, fim, x):
+    if inicio > fim:
+        return -1
+    meio = (inicio + fim) // 2
+    if arr[meio] == x:
+        return meio
+    elif arr[meio] > x:
+        return busca_binaria(arr, inicio, meio - 1, x)
+    else:
+        return busca_binaria(arr, meio + 1, fim, x)
+```
+- A cada chamada, o problema é dividido pela metade.
+- Complexidade: O(log n)
+
+### ⚡ Tabela de Complexidade da Recursão
+
+| Algoritmo          | Complexidade |
+|--------------------|--------------|
+| Fatorial           | O(n)         |
+| Fibonacci simples  | O(2^n)       |
+| Busca Binária      | O(log n)     |
+| Quicksort (média)  | O(n log n)   |
+| Quicksort (pior)   | O(n²)        |
+
+---
+
+### 🔹 Vantagens da Recursão
+- Código mais elegante e legível para problemas que se dividem naturalmente (ex: árvores, divisão e conquista).  
+- Evita laços complexos em problemas de múltiplos níveis.  
+
+---
+
+### 🔹 Desvantagens
+- Pode ser menos eficiente que a versão iterativa (uso extra de memória na pilha de chamadas).  
+- Risco de **estouro de pilha (stack overflow)** se o caso base não for bem definido.  
+
+---
+
+### 📌 Resumo Intuitivo
+A recursão é como **espelhos frente a frente**:  
+
+Cada espelho reflete o próximo até que a imagem fique tão pequena que desaparece (**caso base**).  
+
+O custo depende de quantas vezes você reflete e o que faz em cada reflexão.  
+
+---
