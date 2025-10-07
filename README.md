@@ -1060,3 +1060,74 @@ Apesar de ineficiente para grandes volumes de dados, o **Bubble Sort** é útil 
 - ⚡ Situações em que é importante detectar rapidamente se o vetor já está ordenado (o algoritmo pode parar mais cedo).  
 
 ---
+
+## 🔍 Ordenação Selection Sort (Método da Seleção)
+
+O **Selection Sort**, também conhecido como **método da seleção**, é um algoritmo de ordenação simples que **seleciona o menor elemento** de uma lista e o coloca na **posição correta**, repetindo esse processo até que todos os elementos estejam ordenados.
+
+---
+
+### ⚙️ Como funciona
+
+1. O algoritmo percorre o vetor procurando o **menor elemento**.  
+2. Ao encontrá-lo, **troca-o** com o elemento da posição inicial.  
+3. Em seguida, ignora a primeira posição (já ordenada) e **repete o processo** com o restante do vetor.  
+4. O processo se repete até o último elemento — que automaticamente estará no lugar correto.
+
+---
+
+### 📊 Exemplo de comportamento
+
+Para um vetor com **10 elementos**, o Selection Sort faz:
+
+````yaml
+9 comparações na 1ª passagem  
+8 comparações na 2ª  
+7 na 3ª  
+… até 1 na última
+````
+
+### 📊 Total de comparações
+9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 45
+
+### 🧮 Complexidade Big-O
+- **Tempo:** `O(n²)`  
+- **Comparações:** cerca de `N² / 2`, exatamente como o **Bubble Sort**  
+- **Trocas:** muito menores — geralmente **uma por passagem**
+
+#### 📈 Exemplos práticos:
+- Com **10 elementos** → menos de **10 trocas**  
+- Com **100 elementos** → cerca de **4.950 comparações**, mas menos de **100 trocas**
+
+---
+
+## ⚡ Diferença entre Selection Sort e Bubble Sort
+
+| Aspecto | 🫧 **Bubble Sort** | 🔍 **Selection Sort** |
+|----------|--------------------|----------------------|
+| **Comparações** | Muitas (`N² / 2`) | Muitas (`N² / 2`) |
+| **Trocas** | Muitas (até `N² / 4`) | Poucas (≈ `N`) |
+| **Eficiência** | Mais lento em listas grandes | Um pouco mais eficiente |
+| **Estratégia** | Compara pares adjacentes e troca várias vezes | Seleciona o menor e faz uma única troca por passagem |
+| **Detecta vetor ordenado** | ✅ Sim (pode parar antes) | ❌ Não (percorre até o final sempre) |
+| **Didática** | Excelente para aprender **trocas e comparações** | Boa para entender **seleção e posição fixa** |
+
+---
+
+## 💡 Quando usar
+
+O **Selection Sort** é mais indicado quando:
+
+- 🧠 O foco é **entendimento de algoritmos**, não desempenho.  
+- 🧩 As listas são **pequenas**, e a simplicidade é mais importante que a velocidade.  
+- 📉 Há necessidade de **minimizar trocas**, por exemplo, quando mover elementos é custoso.
+
+---
+
+## 🔗 Visualização online
+
+Você pode visualizar o funcionamento do **Selection Sort** (e comparar com o Bubble Sort) neste link interativo:
+
+👉 [Visualização de algoritmos de ordenação (Visualgo)](https://visualgo.net/en/sorting)
+
+---
